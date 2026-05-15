@@ -3,315 +3,387 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ऋषिकेश रूम बुकिंग</title>
+  <title>Rishikesh Dharamshala Booking</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
     }
 
     body{
-      background:#f4f7fb;
-      color:#222;
-    }
-
-    header{
-      width:100%;
-      height:90vh;
-      background:
-      linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
-      url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600&auto=format&fit=crop');
-      background-size:cover;
-      background-position:center;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
+      background:#0f172a;
       color:white;
-      padding:20px;
+      overflow-x:hidden;
     }
 
-    .hero h1{
-      font-size:55px;
-      margin-bottom:20px;
-      font-weight:700;
+    .overlay{
+      background:rgba(0,0,0,0.55);
     }
 
-    .hero p{
-      font-size:20px;
-      margin-bottom:30px;
+    .glass{
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.1);
     }
 
-    .hero button{
-      padding:15px 35px;
-      border:none;
-      background:#ff9800;
-      color:white;
-      font-size:18px;
-      border-radius:40px;
-      cursor:pointer;
-      transition:0.3s;
+    .gold{
+      color:#facc15;
     }
 
-    .hero button:hover{
-      background:#e68900;
-      transform:scale(1.05);
-    }
-
-    .section-title{
-      text-align:center;
-      margin:60px 0 30px;
-      font-size:38px;
-      color:#0d3b66;
-    }
-
-    .rooms{
-      width:90%;
-      margin:auto;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:30px;
-      padding-bottom:60px;
-    }
-
-    .card{
-      background:white;
-      border-radius:20px;
-      overflow:hidden;
-      box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    .hover-scale{
       transition:0.4s;
     }
 
-    .card:hover{
+    .hover-scale:hover{
       transform:translateY(-10px);
     }
 
-    .card img{
-      width:100%;
-      height:250px;
-      object-fit:cover;
+    .floating{
+      animation:float 3s ease-in-out infinite;
     }
 
-    .card-content{
-      padding:25px;
+    @keyframes float{
+      0%{transform:translateY(0px);}
+      50%{transform:translateY(-10px);}
+      100%{transform:translateY(0px);}
     }
 
-    .card-content h2{
-      color:#0d3b66;
-      margin-bottom:10px;
-    }
-
-    .price{
-      color:#ff5722;
-      font-size:22px;
-      font-weight:600;
-      margin:15px 0;
-    }
-
-    .features{
-      margin:15px 0;
-      line-height:30px;
-      color:#555;
-    }
-
-    .book-btn{
-      width:100%;
-      padding:14px;
-      border:none;
-      background:#0d3b66;
-      color:white;
-      border-radius:12px;
-      font-size:17px;
-      cursor:pointer;
-      transition:0.3s;
-    }
-
-    .book-btn:hover{
-      background:#145da0;
-    }
-
-    .booking-section{
-      background:white;
-      width:90%;
-      max-width:800px;
-      margin:50px auto;
-      padding:40px;
-      border-radius:20px;
-      box-shadow:0 10px 25px rgba(0,0,0,0.1);
-    }
-
-    .booking-section h2{
-      text-align:center;
-      margin-bottom:30px;
-      color:#0d3b66;
-    }
-
-    form{
-      display:grid;
-      gap:20px;
-    }
-
-    input, select{
-      padding:15px;
-      border:1px solid #ccc;
-      border-radius:10px;
-      font-size:16px;
-    }
-
-    .submit-btn{
-      background:#ff9800;
-      color:white;
-      border:none;
-      padding:15px;
-      font-size:18px;
-      border-radius:12px;
-      cursor:pointer;
-      transition:0.3s;
-    }
-
-    .submit-btn:hover{
-      background:#e68900;
-    }
-
-    footer{
-      background:#0d3b66;
-      color:white;
-      text-align:center;
-      padding:25px;
-      margin-top:50px;
-    }
-
-    @media(max-width:768px){
-      .hero h1{
-        font-size:38px;
-      }
-
-      .hero p{
-        font-size:17px;
-      }
-    }
   </style>
 </head>
+
 <body>
 
-  <!-- HERO SECTION -->
+<!-- HERO SECTION -->
 
-  <header>
-    <div class="hero">
-      <h1>ऋषिकेश रूम बुकिंग</h1>
-      <p>गीता भवन और परमार्थ निकेतन में आरामदायक रूम बुक करें</p>
-      <button onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
-        अभी बुक करें
-      </button>
+<section class="relative h-screen">
+
+  <video autoplay muted loop playsinline class="absolute w-full h-full object-cover">
+    <source src="https://cdn.coverr.co/videos/coverr-ganga-river-1560336957230?download=1080p" type="video/mp4">
+  </video>
+
+  <div class="overlay absolute inset-0"></div>
+
+  <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+
+    <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+      Divine Stay In <span class="gold">Rishikesh</span>
+    </h1>
+
+    <p class="mt-6 text-lg md:text-2xl max-w-3xl text-gray-200">
+      शांति • सेवा • साधना <br>
+      Ganga किनारे आध्यात्मिक अनुभव के साथ आरामदायक कमरे
+    </p>
+
+    <div class="mt-8 flex gap-4 flex-wrap justify-center">
+
+      <a href="#rooms" class="bg-yellow-400 text-black px-8 py-4 rounded-full font-bold hover:bg-yellow-300 transition">
+        Book Rooms
+      </a>
+
+      <a href="tel:+919999999999" class="border border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition">
+        Call Booking
+      </a>
+
     </div>
-  </header>
 
-  <!-- ROOM SECTION -->
+  </div>
+</section>
 
-  <h2 class="section-title">हमारे उपलब्ध रूम</h2>
 
-  <section class="rooms">
+<!-- ABOUT -->
 
-    <!-- GEETA BHAWAN -->
+<section class="py-20 px-6 md:px-20">
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop">
+  <div class="grid md:grid-cols-2 gap-12 items-center">
 
-      <div class="card-content">
-        <h2>गीता भवन</h2>
+    <div>
+      <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1200&auto=format&fit=crop"
+      class="rounded-3xl shadow-2xl">
+    </div>
 
-        <p>
-          बजट फ्रेंडली और शांत वातावरण वाला आश्रम।
+    <div>
+      <h2 class="text-4xl font-bold mb-6">
+        Spiritual Dharamshala Experience
+      </h2>
+
+      <p class="text-gray-300 leading-8 text-lg">
+        Ganga ji के पवित्र तट पर स्थित हमारी धर्मशाला आपको 
+        शांति, भक्ति और आरामदायक ठहराव का अनुभव देती है।
+        परिवार, भक्तों और यात्रियों के लिए सुरक्षित एवं स्वच्छ व्यवस्था।
+      </p>
+
+      <div class="mt-8 grid grid-cols-2 gap-4">
+
+        <div class="glass p-5 rounded-2xl text-center">
+          <h3 class="text-3xl font-bold gold">50+</h3>
+          <p>Luxury Rooms</p>
+        </div>
+
+        <div class="glass p-5 rounded-2xl text-center">
+          <h3 class="text-3xl font-bold gold">24x7</h3>
+          <p>Support</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ROOM SECTION -->
+
+<section id="rooms" class="py-20 px-6 md:px-20 bg-slate-900">
+
+  <div class="text-center mb-16">
+
+    <h2 class="text-5xl font-bold">
+      Our Rooms
+    </h2>
+
+    <p class="text-gray-400 mt-4">
+      आरामदायक और स्वच्छ कमरे
+    </p>
+
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-8">
+
+    <!-- ROOM CARD -->
+
+    <div class="glass rounded-3xl overflow-hidden hover-scale">
+
+      <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop"
+      class="h-72 w-full object-cover">
+
+      <div class="p-6">
+
+        <h3 class="text-2xl font-bold">
+          Deluxe Room
+        </h3>
+
+        <p class="text-gray-400 mt-3">
+          AC Room • Free WiFi • Ganga View
         </p>
 
-        <div class="price">
-          ₹500 - ₹1000 / रात
+        <div class="mt-6 flex justify-between items-center">
+
+          <h4 class="text-3xl font-bold gold">
+            ₹999
+          </h4>
+
+          <a href="https://wa.me/919999999999"
+          class="bg-yellow-400 text-black px-5 py-3 rounded-full font-semibold">
+            Book
+          </a>
+
         </div>
 
-        <div class="features">
-          ✔ गंगा किनारे लोकेशन <br>
-          ✔ साफ-सुथरे कमरे <br>
-          ✔ परिवार के लिए उपयुक्त <br>
-          ✔ शुद्ध भोजन सुविधा
-        </div>
-
-        <button class="book-btn">
-          Book Now
-        </button>
       </div>
+
     </div>
 
-    <!-- PARMARTH NIKETAN -->
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop">
 
-      <div class="card-content">
-        <h2>परमार्थ निकेतन</h2>
+    <div class="glass rounded-3xl overflow-hidden hover-scale">
 
-        <p>
-          प्रीमियम आध्यात्मिक अनुभव और शानदार सुविधा।
+      <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop"
+      class="h-72 w-full object-cover">
+
+      <div class="p-6">
+
+        <h3 class="text-2xl font-bold">
+          Family Room
+        </h3>
+
+        <p class="text-gray-400 mt-3">
+          4 Bed • Attached Bathroom • Balcony
         </p>
 
-        <div class="price">
-          ₹1000 - ₹2500 / रात
+        <div class="mt-6 flex justify-between items-center">
+
+          <h4 class="text-3xl font-bold gold">
+            ₹1499
+          </h4>
+
+          <a href="https://wa.me/919999999999"
+          class="bg-yellow-400 text-black px-5 py-3 rounded-full font-semibold">
+            Book
+          </a>
+
         </div>
 
-        <div class="features">
-          ✔ लक्ज़री रूम <br>
-          ✔ योग और ध्यान <br>
-          ✔ गंगा आरती व्यू <br>
-          ✔ AC एवं WiFi सुविधा
-        </div>
-
-        <button class="book-btn">
-          Book Now
-        </button>
       </div>
+
     </div>
 
-  </section>
 
-  <!-- BOOKING FORM -->
 
-  <section class="booking-section" id="booking">
+    <div class="glass rounded-3xl overflow-hidden hover-scale">
 
-    <h2>रूम बुकिंग फॉर्म</h2>
+      <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1200&auto=format&fit=crop"
+      class="h-72 w-full object-cover">
 
-    <form>
+      <div class="p-6">
 
-      <input type="text" placeholder="पूरा नाम" required>
+        <h3 class="text-2xl font-bold">
+          Budget Room
+        </h3>
 
-      <input type="tel" placeholder="मोबाइल नंबर" required>
+        <p class="text-gray-400 mt-3">
+          Clean Room • Fan • Hot Water
+        </p>
 
-      <select required>
-        <option value="">रूम चुनें</option>
-        <option>गीता भवन</option>
-        <option>परमार्थ निकेतन</option>
-      </select>
+        <div class="mt-6 flex justify-between items-center">
 
-      <input type="date" required>
+          <h4 class="text-3xl font-bold gold">
+            ₹699
+          </h4>
 
-      <input type="number" placeholder="कितने लोग?" required>
+          <a href="https://wa.me/919999999999"
+          class="bg-yellow-400 text-black px-5 py-3 rounded-full font-semibold">
+            Book
+          </a>
 
-      <button type="submit" class="submit-btn">
-        Booking Submit
-      </button>
+        </div>
 
-    </form>
+      </div>
 
-  </section>
+    </div>
 
-  <!-- FOOTER -->
+  </div>
 
-  <footer>
-    © 2026 ऋषिकेश रूम बुकिंग | सभी अधिकार सुरक्षित
-  </footer>
+</section>
+
+
+<!-- AARTI VIDEO -->
+
+<section class="py-20 px-6 md:px-20">
+
+  <div class="text-center mb-12">
+
+    <h2 class="text-5xl font-bold">
+      Evening Ganga Aarti
+    </h2>
+
+    <p class="text-gray-400 mt-4">
+      दिव्य आरती का अद्भुत अनुभव
+    </p>
+
+  </div>
+
+  <div class="rounded-3xl overflow-hidden shadow-2xl">
+
+    <iframe width="100%" height="600"
+    src="https://www.youtube.com/embed/QTj5dgq0z7I"
+    title="YouTube video player"
+    frameborder="0"
+    allowfullscreen>
+    </iframe>
+
+  </div>
+
+</section>
+
+
+<!-- TEMPLE GALLERY -->
+
+<section class="py-20 px-6 md:px-20 bg-slate-900">
+
+  <div class="text-center mb-16">
+
+    <h2 class="text-5xl font-bold">
+      Temple Gallery
+    </h2>
+
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-8">
+
+    <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=1200&auto=format&fit=crop"
+    class="rounded-3xl h-80 object-cover hover-scale">
+
+    <img src="https://images.unsplash.com/photo-1589307004394-8941c63ce6b5?q=80&w=1200&auto=format&fit=crop"
+    class="rounded-3xl h-80 object-cover hover-scale">
+
+    <img src="https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1200&auto=format&fit=crop"
+    class="rounded-3xl h-80 object-cover hover-scale">
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="py-20 px-6 md:px-20">
+
+  <div class="glass rounded-3xl p-10 text-center">
+
+    <h2 class="text-5xl font-bold">
+      Book Your Stay Now
+    </h2>
+
+    <p class="text-gray-400 mt-5 text-lg">
+      WhatsApp या Call करके तुरंत बुकिंग करें
+    </p>
+
+    <div class="mt-10 flex flex-wrap gap-5 justify-center">
+
+      <a href="https://wa.me/919999999999"
+      class="bg-green-500 px-8 py-4 rounded-full text-white text-lg font-bold floating">
+        WhatsApp Booking
+      </a>
+
+      <a href="tel:+919999999999"
+      class="bg-yellow-400 text-black px-8 py-4 rounded-full text-lg font-bold">
+        Call Now
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="py-10 text-center border-t border-gray-800">
+
+  <h3 class="text-2xl font-bold gold">
+    Rishikesh Dharamshala
+  </h3>
+
+  <p class="text-gray-500 mt-3">
+    © 2026 All Rights Reserved
+  </p>
+
+</footer>
+
+
+<!-- FLOATING WHATSAPP -->
+
+<a href="https://wa.me/919999999999"
+class="fixed bottom-6 right-6 bg-green-500 w-16 h-16 rounded-full flex items-center justify-center shadow-2xl z-50 floating">
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="white" viewBox="0 0 16 16">
+    <path d="M13.601 2.326A7.854 7.854 0 0 0 8.004 0C3.58 0 .004 3.576.004 8c0 1.41.369 2.79 1.07 4.008L0 16l4.102-1.066A7.94 7.94 0 0 0 8.004 16c4.423 0 8-3.576 8-8a7.94 7.94 0 0 0-2.403-5.674z"/>
+  </svg>
+
+</a>
+
 
 </body>
 </html>
