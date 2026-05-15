@@ -1,214 +1,317 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ऋषिकेश रूम बुकिंग</title>
 
-<!-- 🔥 SEO START -->
-<title>Best Dharamshala in Alwar | Affordable Rooms & Booking</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<meta name="description" content="Book best dharamshala in Alwar. AC rooms, affordable stay, clean rooms, parking, family friendly. Call now or book via WhatsApp.">
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
 
-<meta name="keywords" content="Dharamshala in Alwar, Cheap hotel Alwar, Stay in Alwar, Budget rooms Alwar">
+    body{
+      background:#f4f7fb;
+      color:#222;
+    }
 
-<meta name="author" content="Shree Dharamshala">
+    header{
+      width:100%;
+      height:90vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+      url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
 
-<!-- OPEN GRAPH (Social Sharing) -->
-<meta property="og:title" content="Best Dharamshala in Alwar">
-<meta property="og:description" content="Affordable and clean stay in Alwar with AC rooms.">
-<meta property="og:image" content="https://images.unsplash.com/photo-1566073771259-6a8506099945">
+    .hero h1{
+      font-size:55px;
+      margin-bottom:20px;
+      font-weight:700;
+    }
 
-<!-- 🔥 SCHEMA (Google Ranking Boost) -->
-<script type="application/ld+json">
-{
-"@context": "https://schema.org",
-"@type": "LodgingBusiness",
-"name": "Shree Dharamshala",
-"address": {
-"@type": "PostalAddress",
-"addressLocality": "Alwar",
-"addressCountry": "India"
-},
-"telephone": "+91XXXXXXXXXX"
-}
-</script>
+    .hero p{
+      font-size:20px;
+      margin-bottom:30px;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    .hero button{
+      padding:15px 35px;
+      border:none;
+      background:#ff9800;
+      color:white;
+      font-size:18px;
+      border-radius:40px;
+      cursor:pointer;
+      transition:0.3s;
+    }
 
-<style>
-body{margin:0;font-family:'Poppins',sans-serif;background:#f5f5f5}
+    .hero button:hover{
+      background:#e68900;
+      transform:scale(1.05);
+    }
 
-/* HEADER */
-header{background:#111;color:#fff;padding:15px;text-align:center}
+    .section-title{
+      text-align:center;
+      margin:60px 0 30px;
+      font-size:38px;
+      color:#0d3b66;
+    }
 
-/* HERO */
-.hero{
-background:url('https://images.unsplash.com/photo-1566073771259-6a8506099945') center/cover;
-height:90vh;
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
-text-align:center;
-}
+    .rooms{
+      width:90%;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:30px;
+      padding-bottom:60px;
+    }
 
-.hero h1{font-size:45px}
+    .card{
+      background:white;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 10px 25px rgba(0,0,0,0.1);
+      transition:0.4s;
+    }
 
-/* BUTTON */
-.btn{
-background:#c59d5f;
-padding:12px 25px;
-border:none;
-color:white;
-cursor:pointer;
-}
+    .card:hover{
+      transform:translateY(-10px);
+    }
 
-/* SECTION */
-.section{padding:60px 20px;text-align:center}
+    .card img{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+    }
 
-/* CARDS */
-.cards{display:flex;flex-wrap:wrap;justify-content:center}
-.card{
-background:white;
-margin:15px;
-padding:20px;
-width:280px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1)
-}
+    .card-content{
+      padding:25px;
+    }
 
-/* GALLERY */
-.gallery img{
-width:300px;
-margin:10px;
-border-radius:10px;
-}
+    .card-content h2{
+      color:#0d3b66;
+      margin-bottom:10px;
+    }
 
-/* REVIEW */
-.review{
-background:white;
-padding:20px;
-margin:10px auto;
-width:300px;
-border-radius:10px;
-}
+    .price{
+      color:#ff5722;
+      font-size:22px;
+      font-weight:600;
+      margin:15px 0;
+    }
 
-/* FLOAT BUTTON */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px;
-border-radius:50%;
-font-size:20px;
-}
+    .features{
+      margin:15px 0;
+      line-height:30px;
+      color:#555;
+    }
 
-/* FOOTER */
-footer{background:#111;color:white;padding:20px}
-</style>
+    .book-btn{
+      width:100%;
+      padding:14px;
+      border:none;
+      background:#0d3b66;
+      color:white;
+      border-radius:12px;
+      font-size:17px;
+      cursor:pointer;
+      transition:0.3s;
+    }
 
+    .book-btn:hover{
+      background:#145da0;
+    }
+
+    .booking-section{
+      background:white;
+      width:90%;
+      max-width:800px;
+      margin:50px auto;
+      padding:40px;
+      border-radius:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .booking-section h2{
+      text-align:center;
+      margin-bottom:30px;
+      color:#0d3b66;
+    }
+
+    form{
+      display:grid;
+      gap:20px;
+    }
+
+    input, select{
+      padding:15px;
+      border:1px solid #ccc;
+      border-radius:10px;
+      font-size:16px;
+    }
+
+    .submit-btn{
+      background:#ff9800;
+      color:white;
+      border:none;
+      padding:15px;
+      font-size:18px;
+      border-radius:12px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .submit-btn:hover{
+      background:#e68900;
+    }
+
+    footer{
+      background:#0d3b66;
+      color:white;
+      text-align:center;
+      padding:25px;
+      margin-top:50px;
+    }
+
+    @media(max-width:768px){
+      .hero h1{
+        font-size:38px;
+      }
+
+      .hero p{
+        font-size:17px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-<h2>Shree Dharamshala - Alwar</h2>
-</header>
+  <!-- HERO SECTION -->
 
-<!-- HERO -->
-<div class="hero">
-<div>
-<h1>Best Dharamshala in Alwar</h1>
-<p>Clean • Affordable • Comfortable Stay</p>
-<button class="btn" onclick="scrollToBooking()">Book Now</button>
-</div>
-</div>
+  <header>
+    <div class="hero">
+      <h1>ऋषिकेश रूम बुकिंग</h1>
+      <p>गीता भवन और परमार्थ निकेतन में आरामदायक रूम बुक करें</p>
+      <button onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
+        अभी बुक करें
+      </button>
+    </div>
+  </header>
 
-<!-- ROOMS -->
-<div class="section">
-<h2>Our Rooms in Alwar</h2>
+  <!-- ROOM SECTION -->
 
-<div class="cards">
-<div class="card">
-<h3>AC Room</h3>
-<p>₹1200 / Night</p>
-</div>
+  <h2 class="section-title">हमारे उपलब्ध रूम</h2>
 
-<div class="card">
-<h3>Deluxe Room</h3>
-<p>₹2000 / Night</p>
-</div>
-</div>
+  <section class="rooms">
 
-</div>
+    <!-- GEETA BHAWAN -->
 
-<!-- GALLERY -->
-<div class="section">
-<h2>Photos of Dharamshala</h2>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop">
 
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1501117716987-c8e1ecb210c3" loading="lazy">
-<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" loading="lazy">
-</div>
+      <div class="card-content">
+        <h2>गीता भवन</h2>
 
-</div>
+        <p>
+          बजट फ्रेंडली और शांत वातावरण वाला आश्रम।
+        </p>
 
-<!-- REVIEWS -->
-<div class="section">
-<h2>Customer Reviews</h2>
+        <div class="price">
+          ₹500 - ₹1000 / रात
+        </div>
 
-<div class="review">⭐⭐⭐⭐⭐ Clean and peaceful stay</div>
-<div class="review">⭐⭐⭐⭐ Affordable and best location</div>
+        <div class="features">
+          ✔ गंगा किनारे लोकेशन <br>
+          ✔ साफ-सुथरे कमरे <br>
+          ✔ परिवार के लिए उपयुक्त <br>
+          ✔ शुद्ध भोजन सुविधा
+        </div>
 
-</div>
+        <button class="book-btn">
+          Book Now
+        </button>
+      </div>
+    </div>
 
-<!-- BOOKING -->
-<div class="section" id="booking">
-<h2>Book Dharamshala in Alwar</h2>
+    <!-- PARMARTH NIKETAN -->
 
-<form onsubmit="sendToWhatsApp(); return false;">
-<input type="text" id="name" placeholder="Your Name" required><br><br>
-<input type="date" id="date" required><br><br>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop">
 
-<select id="room">
-<option>AC Room</option>
-<option>Deluxe Room</option>
-</select><br><br>
+      <div class="card-content">
+        <h2>परमार्थ निकेतन</h2>
 
-<button class="btn" type="submit">Book via WhatsApp</button>
-</form>
+        <p>
+          प्रीमियम आध्यात्मिक अनुभव और शानदार सुविधा।
+        </p>
 
-</div>
+        <div class="price">
+          ₹1000 - ₹2500 / रात
+        </div>
 
-<!-- GOOGLE MAP -->
-<div class="section">
-<h2>Location</h2>
-<iframe src="https://www.google.com/maps?q=Alwar&output=embed" width="100%" height="300"></iframe>
-</div>
+        <div class="features">
+          ✔ लक्ज़री रूम <br>
+          ✔ योग और ध्यान <br>
+          ✔ गंगा आरती व्यू <br>
+          ✔ AC एवं WiFi सुविधा
+        </div>
 
-<!-- FLOAT WHATSAPP -->
-<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp">💬</a>
+        <button class="book-btn">
+          Book Now
+        </button>
+      </div>
+    </div>
 
-<footer>
-<p>© 2026 Best Dharamshala in Alwar</p>
-</footer>
+  </section>
 
-<script>
-function scrollToBooking(){
-document.getElementById("booking").scrollIntoView({behavior:"smooth"});
-}
+  <!-- BOOKING FORM -->
 
-function sendToWhatsApp(){
-let name=document.getElementById("name").value;
-let date=document.getElementById("date").value;
-let room=document.getElementById("room").value;
+  <section class="booking-section" id="booking">
 
-let msg=`Booking Request:%0AName: ${name}%0ADate: ${date}%0ARoom: ${room}`;
-window.open(`https://wa.me/91XXXXXXXXXX?text=${msg}`,"_blank");
-}
-</script>
+    <h2>रूम बुकिंग फॉर्म</h2>
+
+    <form>
+
+      <input type="text" placeholder="पूरा नाम" required>
+
+      <input type="tel" placeholder="मोबाइल नंबर" required>
+
+      <select required>
+        <option value="">रूम चुनें</option>
+        <option>गीता भवन</option>
+        <option>परमार्थ निकेतन</option>
+      </select>
+
+      <input type="date" required>
+
+      <input type="number" placeholder="कितने लोग?" required>
+
+      <button type="submit" class="submit-btn">
+        Booking Submit
+      </button>
+
+    </form>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 ऋषिकेश रूम बुकिंग | सभी अधिकार सुरक्षित
+  </footer>
 
 </body>
 </html>
