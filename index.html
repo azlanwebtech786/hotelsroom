@@ -12,6 +12,90 @@
 
 <style>
 
+  /* Facilities */
+
+.facilities{
+padding:100px 0;
+background:#fff;
+}
+
+.facility-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.facility-card{
+background:#fff;
+padding:35px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+transition:.4s;
+}
+
+.facility-card:hover{
+transform:translateY(-10px);
+}
+
+.facility-card i{
+font-size:45px;
+color:#d97706;
+margin-bottom:20px;
+}
+
+/* Counter */
+
+.counter-section{
+background:#d97706;
+padding:80px 0;
+color:#fff;
+}
+
+.counter-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+text-align:center;
+}
+
+.counter-box h2{
+font-size:48px;
+margin-bottom:10px;
+}
+
+/* Activities */
+
+.activities{
+padding:100px 0;
+background:#fff8ef;
+}
+
+/* Gallery */
+
+.gallery{
+padding:100px 0;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.gallery-grid img{
+width:100%;
+height:260px;
+object-fit:cover;
+border-radius:18px;
+transition:.4s;
+cursor:pointer;
+}
+
+.gallery-grid img:hover{
+transform:scale(1.05);
+}
+
 *{
 margin:0;
 padding:0;
@@ -216,6 +300,204 @@ font-weight:500;
 color:#d97706;
 font-size:22px;
 }
+
+  <!-- ===========================
+      FACILITIES SECTION
+=========================== -->
+
+<section class="facilities">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Our Facilities</h2>
+<p>Experience comfort with modern amenities and spiritual surroundings.</p>
+</div>
+
+<div class="facility-grid">
+
+<div class="facility-card">
+<i class="fa-solid fa-wifi"></i>
+<h3>Free WiFi</h3>
+<p>Stay connected with high-speed internet.</p>
+</div>
+
+<div class="facility-card">
+<i class="fa-solid fa-square-parking"></i>
+<h3>Parking</h3>
+<p>Safe parking available for all visitors.</p>
+</div>
+
+<div class="facility-card">
+<i class="fa-solid fa-utensils"></i>
+<h3>Pure Veg Bhojnalaya</h3>
+<p>Fresh and hygienic vegetarian meals.</p>
+</div>
+
+<div class="facility-card">
+<i class="fa-solid fa-shield-heart"></i>
+<h3>24×7 Security</h3>
+<p>Safe environment with CCTV surveillance.</p>
+</div>
+
+<div class="facility-card">
+<i class="fa-solid fa-fan"></i>
+<h3>Air Conditioned Rooms</h3>
+<p>Comfortable AC accommodation.</p>
+</div>
+
+<div class="facility-card">
+<i class="fa-solid fa-hands-praying"></i>
+<h3>Prayer Hall</h3>
+<p>Daily Aarti and peaceful meditation area.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+      COUNTER SECTION
+=========================== -->
+
+<section class="counter-section">
+
+<div class="container">
+
+<div class="counter-grid">
+
+<div class="counter-box">
+<h2>250+</h2>
+<p>Rooms</p>
+</div>
+
+<div class="counter-box">
+<h2>20K+</h2>
+<p>Happy Guests</p>
+</div>
+
+<div class="counter-box">
+<h2>24×7</h2>
+<p>Reception</p>
+</div>
+
+<div class="counter-box">
+<h2>100%</h2>
+<p>Peaceful Stay</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+      TEMPLE ACTIVITIES
+=========================== -->
+
+<section class="activities">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Spiritual Activities</h2>
+<p>Experience devotion, peace and spirituality every day.</p>
+</div>
+
+<div class="room-grid">
+
+<div class="room-card">
+
+<img src="https://images.unsplash.com/photo-1604608672516-f1b0fd6e4c0c?auto=format&fit=crop&w=900&q=80">
+
+<div class="room-info">
+
+<h3>Morning Aarti</h3>
+
+<p>
+Begin your day with divine blessings and positive energy.
+</p>
+
+</div>
+
+</div>
+
+<div class="room-card">
+
+<img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80">
+
+<div class="room-info">
+
+<h3>Bhajan Sandhya</h3>
+
+<p>
+Join evening devotional music and spiritual gatherings.
+</p>
+
+</div>
+
+</div>
+
+<div class="room-card">
+
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80">
+
+<div class="room-info">
+
+<h3>Meditation</h3>
+
+<p>
+Enjoy peaceful meditation sessions in a serene environment.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+      GALLERY
+=========================== -->
+
+<section class="gallery">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Photo Gallery</h2>
+
+<p>Explore our beautiful Ashram & Dharmshala.</p>
+
+</div>
+
+<div class="gallery-grid">
+
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80">
+
+</div>
+
+</div>
+
+</section>
 
 /* Rooms */
 
